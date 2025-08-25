@@ -1,4 +1,5 @@
 module.exports = {
+  preset: 'ts-jest',
   testEnvironment: 'jsdom',
   testPathIgnorePatterns: ['/node_modules'],
   collectCoverage: true,
@@ -18,6 +19,8 @@ module.exports = {
         tsconfig: {
           jsx: 'react-jsx',
           moduleResolution: 'node',
+          esModuleInterop: true,
+          allowSyntheticDefaultImports: true,
         },
       },
     ],
@@ -26,4 +29,5 @@ module.exports = {
   testEnvironmentOptions: {
     customExportConditions: [''],
   },
+  transformIgnorePatterns: ['node_modules/(?!(@faker-js/faker)/)'],
 };
