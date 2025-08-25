@@ -2,8 +2,20 @@
   "compilerOptions": {
     "outDir": "./dist/",
     "module": "commonjs",
+    "lib": ["dom", "dom.iterable", "esnext"],
     "target": "es6",
     "esModuleInterop": true,
-    "allowJs": true
-  }
+    "allowJs": true,
+    "rootDir": "src",
+    "baseUrl": "src",
+    "skipLibCheck": true,
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true
+  },
+  "include": ["src", "tests"],
+  "exclude": ["node_modules", "dist"]
 }
