@@ -1,10 +1,29 @@
-/** @type {import("jest").Config} **/
 module.exports = {
-  roots: ['<rootDir>/src'],
-  collectCoverageFrom: ['<rootDir>/src/**/*.{ts,tsx}'],
-  coverageDirectory: 'coverage',
-  testEnvironment: 'node',
+  testEnvironment: 'jsdom',
+  testPathIgnorePatterns: ['/node_modules'],
+  collectCoverage: true,
+  collectCoverageFrom: [
+    'src/**/*.ts(x)?',
+    '!src/app/**',
+    '!src/lib/registry.tsx',
+    '!src/types/**',
+    '!src/**/stories.tsx',
+    '!src/styles/**',
+  ],
+  modulePaths: ['<rootDir>/src/'],
   transform: {
-    '.+\\.ts$': 'ts-jest',
+    '^.+\\.(js|jsx|ts|tsx)$': [
+      'ts-jest',
+      {
+        tsconfig: {
+          jsx: 'react-jsx',
+          moduleResolution: 'node',
+        },
+      },
+    ],
+  },
+  moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json', 'node'],
+  testEnvironmentOptions: {
+    customExportConditions: [''],
   },
 };
